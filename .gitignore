@@ -6,3 +6,6 @@ deployments/
 .openshift/
 photoapp.iml
 target/
+.project
+.classpath
+.settings/
