@@ -1,5 +1,10 @@
 package com.photoapp.util;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.math.NumberUtils;
+
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -14,13 +19,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-
-import javax.sql.DataSource;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.math.NumberUtils;
-
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class DBMigrator {
     private static final Pattern MIGRATE_SCRIPT_PATTERN = Pattern.compile("[0-9]+\\.sql");
