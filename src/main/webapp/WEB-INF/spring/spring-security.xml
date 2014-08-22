@@ -6,7 +6,13 @@
                                 http://www.springframework.org/schema/security
                                 http://www.springframework.org/schema/security/spring-security-3.2.xsd">
     <http auto-config="true">
+        <form-login login-page="/login"
+                    username-parameter="username"
+                    password-parameter="password" />
+        <intercept-url pattern="/index" access="IS_AUTHENTICATED_ANONYMOUSLY" />
         <intercept-url pattern="/hello" access="ROLE_USER" />
+
+        <!--<csrf />-->
     </http>
 
     <authentication-manager>

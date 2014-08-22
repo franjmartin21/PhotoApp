@@ -7,6 +7,15 @@
         <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>
     </bean>
 
+    <bean id="indexController"  class="com.photoapp.controllers.IndexController" >
+          <property name="formViewWeb" value="page/index" />
+    </bean>
+
+    <bean id="loginController"  class="com.photoapp.controllers.LoginController" >
+        <property name="formViewWeb" value="page/login" />
+    </bean>
+
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
