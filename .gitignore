@@ -2,8 +2,6 @@ deployments
 deployments/
 .idea
 .idea/
-.openshift
-.openshift/
 photoapp.iml
 target/
 .project

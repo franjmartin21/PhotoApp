@@ -21,6 +21,13 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class DBMigrator {
+    private final static String DEFAULT_USER = "photoapp";
+    private final static String DEFAULT_PASS = "photoapp";
+    private final static String DEFAULT_DB = "photoapp";
+    private final static String DEFAULT_HOST = "localhost";
+    private final static int DEFAULT_PORT = 3306;
+
+
     private static final Pattern MIGRATE_SCRIPT_PATTERN = Pattern.compile("[0-9]+\\.sql");
     private static final Logger log = Logger.getLogger(DBMigrator.class.getName());
     private static final String GET_CURRENT_VERSION_SQL = "select version from SchemaVersion";
@@ -93,7 +100,13 @@ public class DBMigrator {
     }
 
     public static void main(String[] args) {
-        DBMigrator app = new DBMigrator("photoapp", "photoapp", "localhost", "photoapp", 3306, "./releases/");
+        String username = System.getProperty("userdb") != null ? System.getProperty("userdb"): DEFAULT_USER;
+        String password = System.getProperty("passdb") != null ? System.getProperty("passdb"): DEFAULT_PASS;
+        int port = System.getProperty("portdb") != null ? Integer.valueOf(System.getProperty("portdb")) : DEFAULT_PORT;
+        String host = System.getProperty("hostdb") != null ? System.getProperty("hostdb") : DEFAULT_HOST;
+        String dbName = System.getProperty("dbName") != null ? System.getProperty("dbName") : DEFAULT_DB;
+
+        DBMigrator app = new DBMigrator(username, password, host, dbName, port, "./releases/");
         try {
             app.migrate();
         } catch (Exception e) {

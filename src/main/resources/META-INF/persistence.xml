@@ -4,7 +4,7 @@
   <persistence-unit name="photoapp" transaction-type="RESOURCE_LOCAL">
 	<non-jta-data-source>java:jboss/datasources/MySQLDS</non-jta-data-source>
     <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->
-	
+
 	<class>com.photoapp.domain.Account</class>
 
 	<exclude-unlisted-classes>true</exclude-unlisted-classes>
