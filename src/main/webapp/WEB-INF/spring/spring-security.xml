@@ -15,6 +15,14 @@
         <!--<csrf />-->
     </http>
 
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="accountSecurityService">
+            <!--<password-encoder hash="md5" />-->
+
+        </authentication-provider>
+    </authentication-manager>
+<!--
     <authentication-manager>
         <authentication-provider>
             <user-service>
@@ -23,5 +31,6 @@
                 <user name="user1" password="1111" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>
-    </authentication-manager>
+    </authentication-manager>-->
+
 </beans:beans>

@@ -21,11 +21,12 @@ public abstract class Record implements Serializable {
 	 * @return
 	 * @uml.property  name="id"
 	 */
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	public long getId() {
 		return id;
 	}
+
 	/**
 	 * @param id
 	 * @uml.property  name="id"

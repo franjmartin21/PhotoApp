@@ -9,13 +9,16 @@
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <context:component-scan base-package="com.photoapp.controllers" />
+    <context:component-scan base-package="com.photoapp" annotation-config="true"/>
+    <context:annotation-config />
+
     <mvc:annotation-driven />
 
 
 
     <import resource="spring-mvc.xml" />
     <import resource="spring-security.xml" />
+    <import resource="spring-orm.xml" />
 
 
 </beans>
