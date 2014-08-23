@@ -15,6 +15,8 @@
         <spring.security.version>3.2.5.RELEASE</spring.security.version>
         <version.org.freemarker>2.3.18</version.org.freemarker>
         <version.mysql>5.1.13</version.mysql>
+        <version.junit>4.11</version.junit>
+        <version.mockito>1.9.5</version.mockito>
         <version.com.google.guava>17.0</version.com.google.guava>
     </properties>
 
@@ -34,19 +36,21 @@
           <artifactId>spring-web</artifactId>
           <version>${spring.version}</version>
       </dependency>
-
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-webmvc</artifactId>
           <version>${spring.version}</version>
       </dependency>
-
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
       <dependency>
           <groupId>org.freemarker</groupId>
           <artifactId>freemarker</artifactId>
           <version>${version.org.freemarker}</version>
       </dependency>
-
       <dependency>
           <groupId>org.springframework.security</groupId>
           <artifactId>spring-security-core</artifactId>
@@ -117,6 +121,16 @@
           <groupId>mysql</groupId>
           <artifactId>mysql-connector-java</artifactId>
           <version>${version.mysql}</version>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>${version.junit}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+          <version>${version.mockito}</version>
       </dependency>
       <dependency>
           <groupId>commons-io</groupId>
