@@ -2,17 +2,15 @@ package com.photoapp.security;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
+import com.photoapp.dao.AccountDao;
 import com.photoapp.domain.Account;
 import com.photoapp.domain.Authority;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collection;
 
 /**
@@ -21,20 +19,16 @@ import java.util.Collection;
 @Service
 public class AccountSecurityService implements UserDetailsService{
 
-
-    private EntityManager entityManager;
-
-
-    @PersistenceContext(unitName = "myJpaDataSource")
-    public void setEntityManager(EntityManager newEm){
-        this.entityManager = newEm;
-    }
+    @Autowired
+    private AccountDao accountDao;
 
     public UserDetails loadUserByUsername(String username){
         // assuming that you have a User class that implements UserDetails
-        final Account account = entityManager.createQuery("from Account where username = :username", Account.class)
+        /*final Account account = entityManager.createQuery("from Account where username = :username", Account.class)
                 .setParameter("username", username)
                 .getSingleResult();
+*/
+        final Account account = accountDao.findAccountByUsername(username);
 
         return new UserDetails() {
             @Override

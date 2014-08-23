@@ -9,6 +9,10 @@ import java.util.List;
 /**
  * Created by fran on 17/08/14.
  */
+@NamedQueries({
+        @NamedQuery(name="account.getByName",
+        query="from Account where username = :username")
+})
 @Entity
 public class Account extends Record{
 
