@@ -55,7 +55,7 @@ public class Account extends Record{
         this.email = email;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "account")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "account")
     public List<Authority> getAuthorities() {
         return authorities;
     }

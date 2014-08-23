@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,11 +18,12 @@ import java.util.Collection;
 /**
  * Created by fran on 22/08/14.
  */
-@Repository
+@Service
 public class AccountSecurityService implements UserDetailsService{
 
 
     private EntityManager entityManager;
+
 
     @PersistenceContext(unitName = "myJpaDataSource")
     public void setEntityManager(EntityManager newEm){
@@ -65,17 +67,17 @@ public class AccountSecurityService implements UserDetailsService{
 
             @Override
             public boolean isAccountNonExpired() {
-                return false;
+                return true;
             }
 
             @Override
             public boolean isAccountNonLocked() {
-                return false;
+                return true;
             }
 
             @Override
             public boolean isCredentialsNonExpired() {
-                return false;
+                return true;
             }
 
             @Override
